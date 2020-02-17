@@ -51,6 +51,10 @@ function in_dotfiles () {
 	fi
 }
 
+function setup_python3() {
+	pip3 install virtualenvwrapper
+}
+
 function main() {
 	local REPO_DIR=$(pwd)
 	# One-liner bash command invocation
@@ -62,11 +66,12 @@ function main() {
 		REPO_DIR="$ZSH_PROFILE/dotfiles"
 	fi
 
-	install_aptget_tools gcc make git vim curl zsh
+	install_aptget_tools gcc make git vim curl zsh python3 python3-pip
 	install_golang
 	install_ohmyzsh
 	setup_git
 	setup_zsh $REPO_DIR/.zsh_profile
+	setup_python3
 }
 
 main $@

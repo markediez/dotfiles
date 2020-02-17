@@ -1,0 +1,24 @@
+# Helper functions
+function addPath() {
+	for NEW_PATH in $@
+	do
+		export PATH="$NEW_PATH:$PATH"
+	done
+}
+
+# Environment variables
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+
+# Aliases
+alias rm="rm -i"
+
+# Extra scripts
+source `which virtualenvwrapper.sh`
+
+# Code
+EXTRA_PATHS=(
+	"$HOME/.local/bin" # Python3 pip3 modules
+)
+
+addPath ${EXTRA_PATHS[@]}
+
