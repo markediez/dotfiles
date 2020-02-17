@@ -59,6 +59,10 @@ function install_vscode() {
 	echo "GOTO WEBSITE"
 }
 
+function setup_workdir() {
+	mkdir -p $HOME/Documents/code
+}
+
 function main() {
 	local REPO_DIR=$(pwd)
 	# One-liner bash command invocation
@@ -75,6 +79,7 @@ function main() {
 	install_ohmyzsh
 	install_vscode
 	setup_git
+	setup_workdir
 	setup_zsh $REPO_DIR/.zsh_profile
 	setup_python3
 }
