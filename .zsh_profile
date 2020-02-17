@@ -12,13 +12,12 @@ export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 # Aliases
 alias rm="rm -i"
 
-# Extra scripts
-source `which virtualenvwrapper.sh`
-
-# Code
+# Paths
 EXTRA_PATHS=(
 	"$HOME/.local/bin" # Python3 pip3 modules
 )
 
 addPath ${EXTRA_PATHS[@]}
 
+# Extra scripts
+source `which virtualenvwrapper.sh`
