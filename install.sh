@@ -55,6 +55,10 @@ function setup_python3() {
 	pip3 install virtualenvwrapper
 }
 
+function install_vscode() {
+	echo "GOTO WEBSITE"
+}
+
 function main() {
 	local REPO_DIR=$(pwd)
 	# One-liner bash command invocation
@@ -69,6 +73,7 @@ function main() {
 	install_aptget_tools gcc make git vim curl zsh python3 python3-pip
 	install_golang
 	install_ohmyzsh
+	install_vscode
 	setup_git
 	setup_zsh $REPO_DIR/.zsh_profile
 	setup_python3
