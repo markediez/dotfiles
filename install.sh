@@ -63,6 +63,10 @@ function setup_workdir() {
 	mkdir -p $HOME/Documents/code
 }
 
+function install_nvm() {
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+}
+
 function main() {
 	local REPO_DIR=$(pwd)
 	# One-liner bash command invocation
@@ -78,6 +82,7 @@ function main() {
 	install_golang
 	install_ohmyzsh
 	install_vscode
+	install_nvm
 	setup_git
 	setup_workdir
 	setup_zsh $REPO_DIR/.zsh_profile
