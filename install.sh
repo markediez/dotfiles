@@ -79,7 +79,7 @@ function main() {
 		REPO_DIR="$ZSH_PROFILE/dotfiles"
 	fi
 
-	install_aptget_tools gcc make git vim curl zsh python3 python3-pip
+	install_aptget_tools gcc make git vim curl zsh python3 python3-pip tmux
 	install_golang
 	install_ohmyzsh
 	install_vscode
