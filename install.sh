@@ -42,6 +42,10 @@ function setup_zsh() {
 	ln -s $1 ~/.zsh_profile
 }
 
+function setup_bash() {
+	ln -s $1 ~/.bash_profile
+}
+
 function in_dotfiles () {
 	local REMOTE_URL=$(git remote get-url origin)
 	if [[ "$REMOTE_URL" == "git@github.com:markediez/dotfiles.git" ]]
@@ -86,6 +90,7 @@ function main() {
 	install_nvm
 	setup_git
 	setup_workdir
+	setup_bash $REPO_DIR/.bash_profile
 	setup_zsh $REPO_DIR/.zsh_profile
 	setup_python3
 }
