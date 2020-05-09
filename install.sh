@@ -1,11 +1,6 @@
 #!/bin/bash
 set -xe
 
-function download_repository() {
-	echo "Downloading repository"
-
-}
-
 function install_aptget_tools() {
 	echo "Downloading core dependencies"
 	sudo apt-get update
@@ -46,15 +41,6 @@ function setup_bash() {
 	ln -s $1 ~/.bash_profile
 }
 
-function in_dotfiles () {
-	local REMOTE_URL=$(git remote get-url origin)
-	if [[ "$REMOTE_URL" == "git@github.com:markediez/dotfiles.git" ]]
-	then
-		return 0
-	else
-		return 1
-	fi
-}
 
 function setup_python3() {
 	pip3 install virtualenvwrapper
@@ -74,18 +60,10 @@ function install_nvm() {
 
 function main() {
 	local REPO_DIR=$(pwd)
-	# One-liner bash command invocation
-	if in_dotfiles
-	then
-		echo "Skipping download, already in dotfiles"
-	else
-		download_repository
-		REPO_DIR="$ZSH_PROFILE/dotfiles"
-	fi
 
 	install_aptget_tools gcc make git vim curl zsh python3 python3-pip tmux
-	install_golang
-	install_ohmyzsh
+	#install_golang
+	#install_ohmyzsh
 	install_vscode
 	install_nvm
 	setup_git
@@ -95,4 +73,9 @@ function main() {
 	setup_python3
 }
 
-main $@
+if [ -z $1 ]
+then
+	main $@
+else
+	$@
+fi
