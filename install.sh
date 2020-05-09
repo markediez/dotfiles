@@ -35,6 +35,7 @@ function setup_git() {
 	echo "Setting up core config"
 	git config --global user.name "Mark Diez"
 	git config --global user.email "markediez@gmail.com"
+	git config --global core.editor "vim"
 }
 
 function setup_zsh() {
