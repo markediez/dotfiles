@@ -58,18 +58,28 @@ function install_nvm() {
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 }
 
+function setup_config() {
+	mkdir -p ~/.dotfiles
+	cat > ~/.dotfiles/config.json <<EOF
+{
+  "repoDir": "$1"
+}
+EOF
+}
+
 function main() {
 	local REPO_DIR=$(pwd)
 
-	install_aptget_tools gcc make git vim curl zsh python3 python3-pip tmux
+	install_aptget_tools gcc make git vim curl zsh python3 python3-pip tmux jq
 	install_golang
 	install_ohmyzsh
 	install_vscode
 	install_nvm
+	setup_config $REPO_DIR
 	setup_git
 	setup_workdir
-	setup_bash $REPO_DIR/.bash_profile
-	setup_zsh $REPO_DIR/.zsh_profile
+	setup_bash $REPO_DIR/ubuntu/.bash_profile
+	setup_zsh $REPO_DIR/ubuntu/.zsh_profile
 	setup_python3
 }
 

@@ -6,6 +6,11 @@ function addPath() {
 	done
 }
 
+# ZSH CONFIG
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+
 # Environment variables
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 
