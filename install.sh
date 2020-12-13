@@ -62,8 +62,8 @@ function main() {
 	local REPO_DIR=$(pwd)
 
 	install_aptget_tools gcc make git vim curl zsh python3 python3-pip tmux
-	#install_golang
-	#install_ohmyzsh
+	install_golang
+	install_ohmyzsh
 	install_vscode
 	install_nvm
 	setup_git
