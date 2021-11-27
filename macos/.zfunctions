@@ -1,0 +1,7 @@
+# Helper functions
+function addPath() {
+	for NEW_PATH in $@
+	do
+		export PATH="$NEW_PATH:$PATH"
+	done
+}
